@@ -5,3 +5,4 @@
 5-local_variables all local variables and environment variabls
 
 6-create_local_variable creates a new local variable
+7-create_global_variable creates a new global variable

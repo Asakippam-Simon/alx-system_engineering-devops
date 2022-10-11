@@ -8,3 +8,4 @@
 8-true_knowledge adds 128+KNOWLEDGE
 9-divide_and_rule prints power/divde
 
+10-love_exponent_breath displays the result of breath to the power love

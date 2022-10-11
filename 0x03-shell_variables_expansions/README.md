@@ -11,3 +11,4 @@
 10-love_exponent_breath displays the result of breath to the power love
 11-binary_to_decimal coverts from base 2 to base 10
 12-combinations prints all possible combinations
+13-print_float prints a number with 2 decimal places

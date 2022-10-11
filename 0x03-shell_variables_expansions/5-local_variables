@@ -1,2 +1,2 @@
-#!/bin/bash
-ls -la
+5-local_variables#!/bin/bash
+set

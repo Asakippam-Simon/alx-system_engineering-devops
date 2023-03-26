@@ -1,6 +1,6 @@
 # Simple_web_stack
-![Simple_web_stack] (https://imgur.com/hTP5zLB)
-#Description
+! [Simple_web_stack] (https://imgur.com/hTP5zLB)
+# Description
 This is a simple web infrastructure that hosts a website that is reachable via www.foobar.com. There are no firewalls or SSL certificates for protecting the server's network. Each component (database, application server) has to share the resources (CPU, RAM, and SSD) provided by the server.
 #Specifics About This Infrastructure
 * What a server is.

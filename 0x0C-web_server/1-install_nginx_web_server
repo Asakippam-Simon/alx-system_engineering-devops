@@ -1,0 +1,15 @@
+!/usr/bin/env bash
+# This script installs a nginx web server
+
+# Install nginx
+sudo apt-get update
+sudo apt-get -y install nginx
+
+# Configure nginx to listen on port 80 and return "Hello World!" at the root
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
+
+# Disable strict host key checking when using scp
+sudo sed -i 's/#   StrictHostKeyChecking ask/StrictHostKeyChecking no/g' /etc/ssh/ssh_config
+
+# Restart Nginx to apply changes
+sudo /etc/init.d/nginx restart

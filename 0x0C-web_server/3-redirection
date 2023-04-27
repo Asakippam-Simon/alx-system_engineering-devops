@@ -1,12 +1,8 @@
 #!/usr/bin/env bash
-# This script configures the nginx server so that /redirect_me is redirecting to
-# another page.
+# configure Nginx server
 
-sudo apt update
-sudo apt install nginx -y
-sudo ufw allow 22
-sudo ufw allow 80
-sudo ufw enable
-echo 'Holberton School' | sudo tee /var/www/html/index.nginx-debian.html > /dev/null
-sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo sed -i '/server_name _;/a \location /redirect_me {\n return 301 https://www.youtube.com/channel/UCf3_0M_d_VChEAJ_a5B2hdQ;\n}' /etc/nginx/sites-availabe/default
 sudo service nginx restart

@@ -1,24 +1,36 @@
-# Install a web server Nginx
-# listening on port 80
-# GET root / return a page that contains the string Holberton School
-# The redirection is “301 Moved Permanently”
-
+# Install Nginx package
 package { 'nginx':
-ensure => installed,
+  ensure => 'installed',
 }
 
+# Configure Nginx server
+file { '/etc/nginx/sites-available/default':
+  content => "
+    server {
+      listen 80;
+      root /var/www/html;
+
+      location / {
+        add_header Cache-Control 'no-store';
+        add_header Pragma 'no-cache';
+        add_header Expires '-1';
+        index index.html;
+        try_files \$uri \$uri/ =404;
+      }
+
+      location /redirect_me {
+        return 301 http://www.example.com;
+      }
+    }
+  ",
+}
+
+# Remove the default Nginx homepage
+file { '/var/www/html/index.nginx-debian.html':
+  ensure => 'absent',
+}
+
+# Add a custom homepage with "Hello World!"
 file { '/var/www/html/index.html':
-content => 'Holberton School',
-}
-
-file_line {'Add redirection, 301':
-  ensure => present,
-  path   => '/etc/nginx/sites-available/default',
-  after  => 'listen 80 default_server',
-  line   => 'rewrite ^/redirect_me https://github.com/EstephaniaCalvoC/ permanent;',
-}
-
-service { 'nginx':
-ensure  => running,
-require => Package['nginx'],
+  content => '<html><body><h1>Hello World!</h1></body></html>',
 }

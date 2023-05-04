@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+function audit_subdomain {
+    DOMAIN=$1
+    SUBDOMAIN=$2
+
+    if [ -z "$SUBDOMAIN" ]; then
+        SUBDOMAINS=("www" "lb-01" "web-01" "web-02")
+    else
+        SUBDOMAINS=("$SUBDOMAIN")
+    fi
+
+    for sub in "${SUBDOMAINS[@]}"; do
+        RECORD_TYPE=$(dig +short $sub.$DOMAIN | awk -F ' ' '{ print $2 }')
+        DESTINATION=$(dig +short $sub.$DOMAIN | awk -F ' ' '{ print $1 }')
+        echo "The subdomain $sub is a $RECORD_TYPE record and points to $DESTINATION"
+    done
+}

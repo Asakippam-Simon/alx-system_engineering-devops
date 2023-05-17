@@ -1,32 +1,4 @@
-#!/bin/bash
-
-# Define the current date in the desired format
-current_date=$(date +'%d-%m-%Y')
-
-# Define the backup file names
-dump_file="backup.sql"
-archive_file="$current_date.tar.gz"
-
-# Generate the MySQL dump without a password
-mysqldump -u root --all-databases > "$dump_file"
-
-# Check if the dump was successful
-if [ $? -eq 0 ]; then
-  echo "MySQL dump created: $dump_file"
-
-  # Compress the dump file into a tar archive
-  tar -czvf "$archive_file" "$dump_file"
-
-  # Check if the compression was successful
-  if [ $? -eq 0 ]; then
-    echo "Backup archive created: $archive_file"
-    # Remove the dump file after compression
-    #rm "$dump_file"
-  else
-    echo "Failed to compress the backup file."
-    exit 1
-  fi
-else
-  echo "Failed to create MySQL dump."
-  exit 1
-fi
+#!/usr/bin/env bash
+# Dumps and archives all MySQL databases
+mysqldump --all-databases -u root --password="$1" > backup.sql
+tar -cvzf "$(date '+%d-%m-%Y.tar.gz')" backup.sql

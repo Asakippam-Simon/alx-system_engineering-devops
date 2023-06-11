@@ -1,8 +1,11 @@
 # Postmortem: Web Stack Outage Incident
 
 **Issue Summary:**
+
 **Duration:** May 10, 2023, 08:00 AM - May 11, 2023, 10:00 AM (UTC-5)
+
 **Impact:** The web application experienced intermittent service disruptions, resulting in slow response times and occasional downtime. Approximately 30% of users were affected, leading to a degraded user experience and potential loss of revenue.
+
 **Root Cause:** Database Connection Pool Exhaustion
 
 **Timeline:**

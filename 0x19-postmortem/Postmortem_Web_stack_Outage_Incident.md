@@ -32,22 +32,22 @@ Conduct a comprehensive review of the entire web stack architecture to identify 
 In conclusion, the web stack outage incident was caused by an exhausted database connection pool. The issue was detected through monitoring alerts and escalated to the appropriate teams for investigation. After identifying the root cause, the connection pool configuration was optimized, and additional monitoring measures were implemented to prevent similar incidents in the future. To further improve system resilience, several corrective and preventative measures were identified, including automated scaling, enhanced monitoring, and load testing procedures. By implementing these tasks, we aim to enhance the stability and performance of our web application, providing a better user experience for our customers.
 
 # HUMOR
-Postmortem: Web Stack Outage Incident - A Tale of Database Connection Pool Drama
+# Postmortem: Web Stack Outage Incident - A Tale of Database Connection Pool Drama
 
 Once upon a time, in a web kingdom far, far away, our noble web application faced a formidable foe - an outage! Join us on this epic adventure as we uncover the thrilling tale of how our brave engineers battled the forces of downtime and emerged victorious!
 
- Issue Summary:
+**Issue Summary:**
 Duration: May 10, 2023, 08:00 AM - May 11, 2023, 10:00 AM (UTC-5)
 Impact: Picture this - our web application stumbled and fumbled, causing slow response times and occasional downtime. Approximately 30% of users were caught in the chaos, resulting in frustrated clicks and desperate refreshes. Oh, the !
 
-horror Timeline:
+**horror Timeline:**
 Issue Detected: As the sun rose on May 10, our vigilant monitoring system sensed trouble brewing, with response times and error rates reaching alarming levels. The battle had begun!
 Actions Taken: Our fearless engineering team sprang into action, investigating the usual suspects - the web server, application server, and even the mischievous load balancer. Alas, the culprits remained elusive!
 Misleading Investigation: In their pursuit of truth, our valiant engineers suspected the load balancer had gone rogue. Hours were spent examining its every nook and cranny, only to find it innocent of any wrongdoing. A classic case of mistaken identity!
 Escalation: As the enemy's grip tightened, our warriors sought reinforcements. The database administration team joined the fray, armed with their SQL queries and supercharged debugging skills.
 Resolution: After an arduous quest for answers, victory was finally within reach! Our courageous team discovered the root cause - an exhausted connection pool in the database .
 
-server Root Cause and Resolution:
+**server Root Cause and Resolution:**
 Root Cause: Behold, the villainous connection pool configuration! It failed to keep pace with the growing number of requests, leaving our database gasping for breath, like a fish out of water.
 Resolution: Determined to restore order, our heroes reconfigured the connection pool to handle the surging traffic. Additionally, they summoned the power of monitoring, setting up alarms to warn of any future connection pool ttlenecks before they wreak havoc.
 Intense load testing sessions to simulate heavy traffic and ensure our web stack stands strong in the face of adversity.
